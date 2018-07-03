@@ -1,0 +1,24 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Introduction\n\n\nPurpose\n\n\nThe guidelines are aimed to provide orientation for data source managers about participation in\nthe OpenAIRE Usage Statistics Service and about the methods and standards used to collect and\nprocess usage data in order to generate comparable, standards-based usage statistics. The\nguidelines follow the Release 4 of the COUNTER Code of Practice for e-Resources\nsupplemented by the IRUS-UK Code of Practice.\n\n\nScope of Application\n\n\nThe OpenAIRE Usage Statistics Service gathers usage data and consolidated usage statistics\nreports respectively from its distributed network of data providers (repositories, e-journals,\nCRIS) by utilizing open standards and protocols and exploiting reliable, consolidated and\ncomparable usage metrics like counts of item downloads and metadata views conformant to\nCOUNTER.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#introduction",
+            "text": "",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#purpose",
+            "text": "The guidelines are aimed to provide orientation for data source managers about participation in\nthe OpenAIRE Usage Statistics Service and about the methods and standards used to collect and\nprocess usage data in order to generate comparable, standards-based usage statistics. The\nguidelines follow the Release 4 of the COUNTER Code of Practice for e-Resources\nsupplemented by the IRUS-UK Code of Practice.",
+            "title": "Purpose"
+        },
+        {
+            "location": "/#scope-of-application",
+            "text": "The OpenAIRE Usage Statistics Service gathers usage data and consolidated usage statistics\nreports respectively from its distributed network of data providers (repositories, e-journals,\nCRIS) by utilizing open standards and protocols and exploiting reliable, consolidated and\ncomparable usage metrics like counts of item downloads and metadata views conformant to\nCOUNTER.",
+            "title": "Scope of Application"
+        }
+    ]
+}
