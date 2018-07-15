@@ -1,1 +1,6 @@
 site_name: OpenAIRE Usage Statistics Guidelines
+site_author: OpenAIRE Usage Statistics Team
+
+nav:
+    - Home: index.md
+    - Service Specification: service-specification/service-spec.md
