@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="None">
-        
+        <meta name="author" content="OpenAIRE Usage Statistics Team">
         
         <link rel="shortcut icon" href="./img/favicon.ico">
         <title>OpenAIRE Usage Statistics Guidelines</title>
@@ -31,11 +31,33 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href=".">OpenAIRE Usage Statistics Guidelines</a>
         </div>
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href=".">Guidelines</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service specification <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            
+<li >
+    <a href="service-specification/service-spec/">Service spec</a>
+</li>
+                        </ul>
+                    </li>
+                </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -43,6 +65,16 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="service-specification/service-spec/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
             </ul>
         </div>
     </div>
@@ -51,146 +83,36 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#introduction">Introduction</a></li>
+        <li class="main active"><a href="#guidelines">Guidelines</a></li>
             <li><a href="#purpose">Purpose</a></li>
-            <li><a href="#introduction_1">Introduction</a></li>
-            <li><a href="#usage-statistics-service-specification">Usage Statistics Service Specification</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#how-to-particiapte-in-the-openaire-usage-statistics-service">How to particiapte in the OpenAIRE Usage Statistics Service</a></li>
+            <li><a href="#responsibilities">Responsibilities</a></li>
+            <li><a href="#maintenance-of-the-guidelines">Maintenance of the Guidelines</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="introduction">Introduction</h1>
+<h1 id="guidelines">Guidelines</h1>
 <h2 id="purpose">Purpose</h2>
 <p>The guidelines are aimed to provide orientation for data source managers about participation in the OpenAIRE Usage Statistics Service and about the methods and standards used to collect and process usage data in order to generate comparable, standards-based usage statistics. The guidelines follow the Release 4 of the COUNTER Code of Practice for e-Resources supplemented by the IRUS-UK Code of Practice.</p>
-<h2 id="introduction_1">Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 <p>The OpenAIRE Usage Statistics Service gathers usage data and consolidated usage statistics reports respectively, from its distributed network of data providers (repositories, e-journals, CRIS) by utilizing open standards and protocols and exploiting reliable, consolidated and comparable usage metrics like counts of item downloads and metadata views conformant to COUNTER Code of Practice. </p>
 <p>The Usage Statistics Service, allows the sharing of statistics across the above distributed network and provides significant added value for different stakeholders. On the data-provider level, it can serve repository managers and hosting institutions as a tool to evaluate the success of the publication platform. On the individual item level, it can demonstrate popular publications to authors and readers. In addition  to  other  traditional  (e.g.  citation  counts)  and  alternative  metrics  (e.g. mentions, recommendations) it can inform funding authorities in research evaluation processes. </p>
 <p>Usage statistics on the item level can reflect relevance of a particular research output, of topics, of (disciplinary) data sources over the course of time and up to the present, e.g. they are an important indicator to analyze trends. For non-traditional output types (e.g. research data, research software), usage statistics are often the only indicator available, while the implementation of data citation standards lags behind. </p>
 <p>The  OpenAIRE  Usage  Statistics  Service  aims  to  facilitate  the  above  added-value  services by tracking, collecting, analyzing and monitoring usage data from its network of data providers and exploiting usage metrics like downloads and metadata views. Moreover, OpenAIRE’s distributed network of data providers allows the aggregation of usage data about publications which are published in several places. </p>
 <p>Being aware of the sensitivity of this usage data, legal constraints are considered regarding the EU General Data Protection Regulation (GDPR). The aim is to allow COUNTER-conformant reports on usage statistics to be generated and thus enable the results of this process to be used to examine correlations with other types of metrics, e.g. bibliometric and webometric. This service is integrated with the repository dashboard, the OpenAIRE portal and API for 3rd party reuse. </p>
-<h2 id="usage-statistics-service-specification">Usage Statistics Service Specification</h2>
-<h3 id="matomo-open-source-analytics-platform">Matomo Open Source Analytics platform</h3>
-<p>OpenAIRE’s usage statistic service uses the Matomo Open Source Analytics platform (matomo.org) to track usage activity. Matomo is a platform for web traffic analysis which started in 2007 and has recently become the world's leading open-source analytics platform. Matomo provides users with valuable insights into their website traffic and visitors activity.  The main advantage of Matomo against other analytics platforms, e.g. Google Analytics, is its approach to ownership of collected data. All information gathered, is available and controlled only by Matomo users and by default is not shared with any third parties. </p>
-<p>Matomo is self-hosted, so the platform is stored on user’s infrastructure and all data is tracked inside the user’s database. Thus, the user keeps full data ownership and can control who has access. It provides greater flexibility, as it allows the collection and storage of PII (<em>Personally Identifiable Information</em>) and other sensitive data that cannot usually be stored outside of a user’s system. Due to its privacy policy, Matomo is compliant with EU regulations, and is recommended by independent centers for Privacy Protection, e.g. ULD 16  in Germany and CNIL 17  in France. Apart from its privacy policies, Matomo exceeds the main competitive Google Analytics platform in other respects, as shown in Table 1 below.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Matomo</th>
-<th>Google Analytics</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Service Access</td>
-<td>Open Source, self-hosting</td>
-<td>Free to use; service provider solution</td>
-</tr>
-<tr>
-<td>Number of Hits per Month</td>
-<td>Unlimited</td>
-<td>10 million</td>
-</tr>
-<tr>
-<td>Number of User Accounts per login</td>
-<td>Unlimited</td>
-<td>10</td>
-</tr>
-<tr>
-<td>Data storage time</td>
-<td>Unlimited</td>
-<td>25 months</td>
-</tr>
-<tr>
-<td>Number of properties (websites,  apps  etc.) tracked per account</td>
-<td>Unlimited</td>
-<td>50</td>
-</tr>
-<tr>
-<td>Custom Variables</td>
-<td>5</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Data Export</td>
-<td>Unlimited</td>
-<td>5000 rows</td>
-</tr>
-<tr>
-<td>Real time Analytics</td>
-<td>Piwik  offers  real-time  web analytics in all of its reports.</td>
-<td>GA monitors user activity right after it happens, although period of delay is not explicitly stated.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="description-of-the-service">Description of the Service</h3>
-<p>OpenAIRE Usage Statistics Service operates as a basis for:</p>
+<h2 id="how-to-particiapte-in-the-openaire-usage-statistics-service">How to particiapte in the OpenAIRE Usage Statistics Service</h2>
+<p>Integration of repository usage statistics comprises the following steps: </p>
 <ul>
-<li>reliable, comparable standards-based statistics (COUNTER-conformant, bot filtering)</li>
-<li>reporting to stakeholders (e.g. as a repository dashboard feature)  </li>
-<li>accumulated usage statistics of repository items which are hosted in multiple data providers (de-duplication) </li>
-<li>provision of usage statistics as an open metric via a standardized API (SUSHI-Lite) for 3rd party re-use. </li>
-</ul>
-<p>Two approaches are foreseen for the collection of usage data, named Tier 1 and Tier 2, both depicted in Figure 1. Tier 1, is the default workflow offered by the Usage Analytics service in OpenAIRE. Tier 1 exploits a <em>Push</em> workflow provided by Matomo platform and allows server side tracking of events. Open Access repositories embedd tracking code in the form of DSpace plugins or EPrints patches, that exploit Matomo's HTTP API. Usage Activity is tracked and logged at Matomo platform in real time. Ιnformation is transferred offline, using Matomo’s API, to OpenAIRE’s DBs for further processing using the COUNTER Code of Practice and statistical analysis. Statistics are subsequently deployed via OpenAIRE’s Portal, OpenAIRE's Repository Dashboard or Sushi-Lite API endpoint. Tier 1 approach tracks the following information by means of tracking parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>idSite</td>
-<td>the ID of the repository</td>
-</tr>
-<tr>
-<td>idVisit</td>
-<td>a visitor/session ID (an 8 byte binary string)</td>
-</tr>
-<tr>
-<td>visitIP (optionally anonymized)</td>
-<td>the IP address of the visitor action</td>
-</tr>
-<tr>
-<td>action</td>
-<td>the action performed (view or download)</td>
-</tr>
-<tr>
-<td>url</td>
-<td>the url of the requested item</td>
-</tr>
-<tr>
-<td>timestamp</td>
-<td>the date &amp; time of the request</td>
-</tr>
-<tr>
-<td>OAI-PMH Identifier</td>
-<td>the Open Access Initiative identifier of the item being viewed/downloaded</td>
-</tr>
-<tr>
-<td>agent</td>
-<td>the Web Browser and the operating system of the visitor</td>
-</tr>
-<tr>
-<td>referrer</td>
-<td>The url linked to the item requested</td>
-</tr>
-</tbody>
-</table>
-<p>A different approach for the usage analytics service, named Tier 2 and also depicted in Figure 1, follows a <em>Pull</em> approach, whereas data providers or usage statistics aggregation services (e.g. IRUS-UK) offer a bulk download method for the usage data. In particular, Tier 2 approach supports the gathering of consolidated statistics reports using other protocols such as SUSHI-Lite. These statistics are also stored to OpenAIRE’s DB for statistical analysis and are deployed via OpenAIRE’s Portal, OpenAIRE's Repository Dashboard, or Sushi-Lite API.</p>
-<p>As seen above, Usage Statistics service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal. Integration of repository usage statistics comprises the following steps: </p>
-<ul>
-<li>registration of the repository in the Piwik platform via the repository dashboard </li>
+<li>registration of the repository in the <a href="https://matomo.org/">Matomo platform</a> running in OpenAIRE via the repository dashboard </li>
 <li>installation of the tracking code </li>
 <li>tracking of usage events from the repository in Matomo </li>
-<li>application of COUNTER rules on usage data and storing them to the OpenAIRE statistics DB </li>
-<li>presentation of usage statistics on the OpenAIRE Portal and dashboard and provision via the SUSHI-Lite API endpoint. </li>
+<li>application of COUNTER rules on usage data and storing them to the OpenAIRE statistics Database</li>
+<li>presentation of usage statistics on the OpenAIRE Portal and dashboard and provision of usage reports via the <a href="http://beta.services.openaire.eu/usagestats/sushilite/">SUSHI-Lite API endpoint</a>. </li>
 </ul>
-<p><img alt="" src="./img/TiersCollectionWorkflows.png" /></p>
-<p><em>Fig.1 2-Tiers Collection Workflows for Usage Statistics</em></p>
 <h3 id="usage-statistics-service-registration">Usage Statistics Service Registration</h3>
-<p>The first step of the usage tracking process is the registration of the repository to the Matomo platform. This is done by the data provider manager via the repository dashboard. A unique identifier of the Matomo instance is generated and associated with the repository, together with an authentication token, required to access the platform. The identifier is stored and accessible in the data source profile.</p>
+<p>The first step of the usage tracking process is the registration of the repository to the <a href="https://matomo.org/">Matomo platform</a> running in OpenAIRE. This is done by the data provider manager via the repository dashboard. A unique identifier of the Matomo instance is generated and associated with the repository, together with an authentication token, required to access the platform. The identifier is stored and accessible in the data source profile.</p>
 <h3 id="usage-statistics-service-configuration">Usage Statistics Service Configuration</h3>
 <p>There are four steps that need to be performed in order to configure and use the Usage Statistics Service. These steps require the co-operation of the repository and given below:</p>
 <p>On the Repository's side</p>
@@ -211,32 +133,26 @@
 <ol>
 <li>OpenAIRE's usage statistics staff will validate the installation of the tracking code and inform the repository manager accordingly.</li>
 </ol>
-<h3 id="application-of-counter-code-of-practice-rules-on-usage-events">Application of COUNTER Code of Practice rules on usage events</h3>
-<p>An important step of the Usage Statistics Service process is the cleaning of usage activity which is caused by machines like web bots or spiders. Such software systematically browses websites in order to enhance web indexing but their activities affect usage traffic statistics since they result in the logging of non-legitimate usage activity. To avoid such non-legitimate traffic Matomo maintains a community-contributed list of referrer spammers. The list is stored in a file named spammers.txt and contains one (bot/spider) host per line. This list is included in each Matomo release so that referrer spam is filtered automatically. Matomo also automatically updates this list to its latest version every week.</p>
-<p>The main cleaning process in usage logs, is the application of the COUNTER Code of Practice rules, as described in the last version of the COUNTER framework. COUNTER framework provides an international, extendible Code of Practice for e-Resources that allows the usage of online information products and services to be measured in a credible, consistent and compatible way using vendor-generated data.</p>
-<p>COUNTER specifies the following return codes and time filters for data processing :</p>
-<ol type="a">
-  <li>Only successful and valid requests should be counted. For web server logs successful requests are those with specific NCSA return codes. (200 and 304). The standards for return codes are defined and maintained by NCSA. In case key events are used their definition should match the NCSA standards. (For more information see Appendix D: Guidelines for Implementation.)</li>
-  <li>Records generated by the server together with the requested page (e.g. images, gif’s, style sheets (.css)) should be ignored.</li>
-  <li>All users’ double-clicks on an http-link should be counted as only 1 request. The time window for occurrence of a double-click should be set at 10 seconds between the first and the second mouse-click.</li>
-</ol>
-
-<p>There are a number of options to make sure that a double click comes from one and the same user:</p>
-<ol>
-<li>where only the IP address of a user is logged that IP should be taken as the field to trace double-clicks</li>
-<li>when a session-cookie is implemented and logged, the session-cookie should be used to trace the double-clicks.</li>
-<li>when user-cookies are available and logged, the user-cookie should be used to trace double- clicks</li>
-<li>when the username of a registered user is logged, this username should be used to trace double-clicks.</li>
-</ol>
-<p>Options 1 to 4 above have an increasing level of reliability for filtering out double-clicks: option 1 has the lowest level of precision (and may lead to under reporting from the vendor perspective) while with option 4 the result will be optimal. The downloading and rendering of a PDF, image, video clip or audio clip may take longer than the rendering of an HTML page. Therefore, requests by one and the same IP/username/session- or user cookie for one and the same PDF, image, video clip or audio clip should be counted as a single request if these multiple requests occur within a 30 seconds time window. These multiple requests may also be triggered by pressing a refresh or back button on the desktop by the user.</p>
-<p>In OpenAIRE’s case the 10s and 30s time window for views and downloads are implemented respectively. Sessions are automatically identified by Matomo. Regarding repository records with multiple files associated (e.g. multiple book chapters), download requests are counted multiple times if the identifier (e.g. Handle, DOI) is the same.</p>
-<h3 id="representation-and-provision-of-usage-statistics">Representation and Provision of Usage Statistics</h3>
-<p>After COUNTER rules are applied, the resulting usage statistics are represented in the OpenAIRE's dashboard for repository mangers, in the OpenAIRE portal per data source and document using a variety of charts. The statistics can also be requested as COUNTER Reports from the SUSHU-Lite endpoint. The relevant report types generated by OpenAIRE are for example:</p>
-<ul>
-<li>IR-1 - Item Report 1, number of successful item download requests by month and repository</li>
-<li>JR-1 - Journal Report 1, number of successful full-text article requests by month and journal</li>
-<li>RR-1 - Repository Report 1, number of successful item downloads for all repositories participating in the usage statistics service</li>
-</ul></div>
+<h2 id="responsibilities">Responsibilities</h2>
+<p>Before data providers can officially participate in OpenAIRE Usage Statistics the implementation
+and configuration of the tracker plugins and SUSHI-Lite endpoints respectively will be tested and
+validated between the data provider manager and the OpenAIRE support.</p>
+<p><em>Data Provider Managers</em></p>
+<p>Data Provider Managers keep the configuration information regarding usage statistics in the data provider
+dashboard up to date.
+In case of platform software updates (e.g. by migration, new releases) which may affect existing
+metadata record identifiers the data provider manager informs the OpenAIRE support.</p>
+<p><em>OpenAIRE</em></p>
+<p>The OpenAIRE Usage Statistics service complies with the EU General Data Protection Regulation with regard to the protection of
+personally identifiable information.
+The Usage Statistics Service will generate visualizations and reports on a monthly basis. In order
+to conform with the COUNTER Code of Practice the data processing and cleaning rules will be
+maintained to comply with the lastest release of COUNTER.</p>
+<h2 id="maintenance-of-the-guidelines">Maintenance of the Guidelines</h2>
+<p>The guidelines are continuously reviewed for their validity and will be updated with regards to
+new releases of standards for the recording and exchange of usage statistics and new releases
+of OpenAIRE services that record, process, represent or expose usage statistics. Participating
+data provider managers will be informed accordingly.</p></div>
         </div>
 
         <footer class="col-md-12">
@@ -318,5 +234,5 @@
 
 <!--
 MkDocs version : 0.17.4
-Build Date UTC : 2018-07-09 13:13:21
+Build Date UTC : 2018-07-15 17:51:52
 -->
