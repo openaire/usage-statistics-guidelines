@@ -1,6 +1,12 @@
 site_name: OpenAIRE Usage Statistics Guidelines
 site_author: OpenAIRE Usage Statistics Team
-
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
 nav:
     - Home: index.md
     - Service Specification: service-specification/service-spec.md
+

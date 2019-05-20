@@ -1,4 +1,5 @@
-# Guidelines
+<img width="200"  height="200" align="right" src="img/Logo_Vertical.png"> 
+# OpenAIRE Usage Statistics Guidelines
 
 ## Purpose
 
@@ -6,25 +7,25 @@ The guidelines are aimed to provide orientation for data source managers about p
 
 ## Introduction
 
-The OpenAIRE Usage Statistics Service gathers usage data and consolidated usage statistics reports respectively, from its distributed network of data providers (repositories, e-journals, CRIS) by utilizing open standards and protocols and exploiting reliable, consolidated and comparable usage metrics like counts of item downloads and metadata views conformant to COUNTER Code of Practice. 
+The OpenAIRE Usage Statistics Service gathers usage data and consolidated usage statistics reports respectively, from its distributed network of data providers (repositories, e-journals, CRIS) by utilizing open standards and protocols and exploiting reliable, consolidated and comparable usage metrics like counts of item downloads and metadata views conformant to COUNTER Code of Practice.
 
-The Usage Statistics Service, allows the sharing of statistics across the above distributed network and provides significant added value for different stakeholders. On the data-provider level, it can serve repository managers and hosting institutions as a tool to evaluate the success of the publication platform. On the individual item level, it can demonstrate popular publications to authors and readers. In addition  to  other  traditional  (e.g.  citation  counts)  and  alternative  metrics  (e.g. mentions, recommendations) it can inform funding authorities in research evaluation processes. 
+The Usage Statistics Service, allows the sharing of statistics across the above distributed network and provides significant added value for different stakeholders. On the data-provider level, it can serve repository managers and hosting institutions as a tool to evaluate the success of the publication platform. On the individual item level, it can demonstrate popular publications to authors and readers. In addition  to  other  traditional  (e.g.  citation  counts)  and  alternative  metrics  (e.g. mentions, recommendations) it can inform funding authorities in research evaluation processes.
 
-Usage statistics on the item level can reflect relevance of a particular research output, of topics, of (disciplinary) data sources over the course of time and up to the present, e.g. they are an important indicator to analyze trends. For non-traditional output types (e.g. research data, research software), usage statistics are often the only indicator available, while the implementation of data citation standards lags behind. 
+Usage statistics on the item level can reflect relevance of a particular research output, of topics, of (disciplinary) data sources over the course of time and up to the present, e.g. they are an important indicator to analyze trends. For non-traditional output types (e.g. research data, research software), usage statistics are often the only indicator available, while the implementation of data citation standards lags behind.
 
-The  OpenAIRE  Usage  Statistics  Service  aims  to  facilitate  the  above  added-value  services by tracking, collecting, analyzing and monitoring usage data from its network of data providers and exploiting usage metrics like downloads and metadata views. Moreover, OpenAIRE’s distributed network of data providers allows the aggregation of usage data about publications which are published in several places. 
+The  OpenAIRE  Usage  Statistics  Service  aims  to  facilitate  the  above  added-value  services by tracking, collecting, analyzing and monitoring usage data from its network of data providers and exploiting usage metrics like downloads and metadata views. Moreover, OpenAIRE’s distributed network of data providers allows the aggregation of usage data about publications which are published in several places.
 
-Being aware of the sensitivity of this usage data, legal constraints are considered regarding the EU General Data Protection Regulation (GDPR). The aim is to allow COUNTER-conformant reports on usage statistics to be generated and thus enable the results of this process to be used to examine correlations with other types of metrics, e.g. bibliometric and webometric. This service is integrated with the repository dashboard, the OpenAIRE portal and API for 3rd party reuse. 
+Being aware of the sensitivity of this usage data, legal constraints are considered regarding the EU General Data Protection Regulation (GDPR). The aim is to allow COUNTER-conformant reports on usage statistics to be generated and thus enable the results of this process to be used to examine correlations with other types of metrics, e.g. bibliometric and webometric. This service is integrated with the repository dashboard, the OpenAIRE portal and API for 3rd party reuse.
 
-## How to particiapte in the OpenAIRE Usage Statistics Service
+## How to participate in the OpenAIRE Usage Statistics Service
 
-Integration of repository usage statistics comprises the following steps: 
+Integration of repository usage statistics comprises the following steps:
 
-*  registration of the repository in the [Matomo platform][matomo] running in OpenAIRE via the repository dashboard 
-*  installation of the tracking code 
-*  tracking of usage events from the repository in Matomo 
+*  registration of the repository in the [Matomo platform][matomo] running in OpenAIRE via the repository dashboard
+*  installation of the tracking code
+*  tracking of usage events from the repository in Matomo
 *  application of COUNTER rules on usage data and storing them to the OpenAIRE statistics Database
-*  presentation of usage statistics on the OpenAIRE Portal and dashboard and provision of usage reports via the [SUSHI-Lite API endpoint][sushiliteendpoint]. 
+*  presentation of usage statistics on the OpenAIRE Portal and dashboard and provision of usage reports via the [SUSHI-Lite API endpoint][sushiliteendpoint].
 
 ### Usage Statistics Service Registration
 
@@ -38,9 +39,9 @@ On the Repository's side
 
 1. Download the tracking code for the repository platform.
 2. Configure the tracking code according to the instructions. The code and the instructions are maintained on Github:
-	
+
 	* as a patch for various versions of [DSpace](https://github.com/openaire/OpenAIRE-Piwik-DSpace)
-	* as an [Eprints](https://github.com/openaire/EPrints-OAPiwik) plugin for version 3 
+	* as an [Eprints](https://github.com/openaire/EPrints-OAPiwik) plugin for version 3
 
 3. Deploy the tracking code in your repository platform.
 
@@ -78,4 +79,3 @@ data provider managers will be informed accordingly.
 
 [sushiliteendpoint]: http://beta.services.openaire.eu/usagestats/sushilite/
 [matomo]: https://matomo.org/
-

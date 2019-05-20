@@ -1,14 +1,14 @@
 #  Usage Statistics Service Specification
 
 ## Matomo Open Source Analytics platform
-OpenAIRE’s usage statistic service uses the [Matomo Open Source Analytics platform][matomo] to track usage activity. Matomo is a platform for web traffic analysis which started in 2007 and has recently become the world's leading open-source analytics platform. Matomo provides users with valuable insights into their website traffic and visitors activity.  The main advantage of Matomo against other analytics platforms, e.g. Google Analytics, is its approach to ownership of collected data. All information gathered, is available and controlled only by Matomo users and by default is not shared with any third parties. 
- 
+OpenAIRE’s usage statistic service uses the [Matomo Open Source Analytics platform][matomo] to track usage activity. Matomo is a platform for web traffic analysis which started in 2007 and has recently become the world's leading open-source analytics platform. Matomo provides users with valuable insights into their website traffic and visitors activity.  The main advantage of Matomo against other analytics platforms, e.g. Google Analytics, is its approach to ownership of collected data. All information gathered, is available and controlled only by Matomo users and by default is not shared with any third parties.
+
 Matomo is self-hosted, so the platform is stored on user’s infrastructure and all data is tracked inside the user’s database. Thus, the user keeps full data ownership and can control who has access. It provides greater flexibility, as it allows the collection and storage of PII (*Personally Identifiable Information*) and other sensitive data that cannot usually be stored outside of a user’s system. Due to its privacy policy, Matomo is compliant with EU regulations, and is recommended by independent centers for Privacy Protection, e.g. ULD 16  in Germany and CNIL 17  in France. Apart from its privacy policies, Matomo exceeds the main competitive Google Analytics platform in other respects, as shown in Table 1 below.
 
 | 			 | Matomo | Google Analytics
 ------------ | ------------- | -------------
-|Service Access | Open Source, self-hosting | Free to use; service provider solution 
-|Number of Hits per Month | Unlimited | 10 million 
+|Service Access | Open Source, self-hosting | Free to use; service provider solution
+|Number of Hits per Month | Unlimited | 10 million
 |Number of User Accounts per login | Unlimited | 10
 |Data storage time | Unlimited | 25 months
 |Number of properties (websites,  apps  etc.) tracked per account | Unlimited | 50
@@ -22,29 +22,32 @@ OpenAIRE Usage Statistics Service operates as a basis for:
 
 * reliable, comparable standards-based statistics (COUNTER-conformant, bot filtering)
 * reporting to stakeholders (e.g. as a repository dashboard feature)  
-* accumulated usage statistics of repository items which are hosted in multiple data providers (de-duplication) 
-* provision of usage statistics as an open metric via a standardized API (SUSHI-Lite) for 3rd party re-use. 
+* accumulated usage statistics of repository items which are hosted in multiple data providers (de-duplication)
+* provision of usage statistics as an open metric via a standardized API (SUSHI-Lite) for 3rd party re-use.
 
 Two approaches are foreseen for the collection of usage data, named Tier 1 and Tier 2, both depicted in Figure 1. Tier 1, is the default workflow offered by the Usage Analytics service in OpenAIRE. Tier 1 exploits a *Push* workflow provided by Matomo platform and allows server side tracking of events. Open Access repositories embedd tracking code in the form of DSpace plugins or EPrints patches, that exploit Matomo's HTTP API. Usage Activity is tracked and logged at Matomo platform in real time. Ιnformation is transferred offline, using Matomo’s API, to OpenAIRE’s DBs for further processing using the COUNTER Code of Practice and statistical analysis. Statistics are subsequently deployed via OpenAIRE’s Portal, OpenAIRE's Repository Dashboard or Sushi-Lite API endpoint. Tier 1 approach tracks the following information by means of tracking parameters:
 
 
 | Parameter | Description
 ------------ | -------------
-| idSite | the ID of the repository
-| idVisit | a visitor/session ID (an 8 byte binary string)
-| visitIP (optionally anonymized) |the IP address of the visitor action
-| action | the action performed (view or download) 
+| rec | Required for tracking, must be set to one
+| idsite | the ID of the repository
+| idVisit | a visitor/session ID (an 8 byte binary string) automatically created by Matomo  
+| cip |the IP address of the visitor (optionally anonymized)
+| action_name | the title of the item being accessed
 | url |the url of the requested item
-| timestamp | the date & time of the request
-| OAI-PMH Identifier | the Open Access Initiative identifier of the item being viewed/downloaded
-| agent | the Web Browser and the operating system of the visitor 
-| referrer |The url linked to the item requested
+| download | the url of the item, in case of a download
+| timestamp | the date & time of the request, automatically created by Matomo
+| cvar | A custom variable to store the OAI-PMH Identifier, of the item being viewed/downloaded
+| ua | the Web Browser and the operating system of the visitor
+| urlref | The url linked to the item requested
+| token_auth | 32 character authorization key used to authenticate the API request
 
 
 A different approach for the usage analytics service, named Tier 2 and also depicted in Figure 1, follows a *Pull* approach, whereas data providers or usage statistics aggregation services (e.g. IRUS-UK) offer a bulk download method for the usage data. In particular, Tier 2 approach supports the gathering of consolidated statistics reports using other protocols such as SUSHI-Lite. These statistics are also stored to OpenAIRE’s DB for statistical analysis and are deployed via OpenAIRE’s Portal, OpenAIRE's Repository Dashboard, or Sushi-Lite API.
 
 
-As seen above, Usage Statistics service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal. 
+As seen above, Usage Statistics service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal.
 
 ![](/img/TiersCollectionWorkflows.png)
 
@@ -84,9 +87,8 @@ After COUNTER rules are applied, the resulting usage statistics are represented 
 * IR-1 - Item Report 1, number of successful item download requests by month and repository
 * JR-1 - Journal Report 1, number of successful full-text article requests by month and journal
 * RR-1 - Repository Report 1, number of successful item downloads for all repositories participating in the usage statistics service
-* BR-1 - Book Report 1, number of successful title requests by month and title	
+* BR-1 - Book Report 1, number of successful title requests by month and title
 * BR-2 - Book Report 2, number of successful section requests by month and title
 
 [sushiliteendpoint]: http://beta.services.openaire.eu/usagestats/sushilite/
 [matomo]: https://matomo.org/
-
