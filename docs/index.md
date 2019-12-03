@@ -21,11 +21,12 @@ Being aware of the sensitivity of this usage data, legal constraints are conside
 
 Integration of repository usage statistics comprises the following steps:
 
-*  registration of the repository in the [Matomo platform][matomo] running in OpenAIRE via the repository dashboard
+*  registration of the repository in the [Matomo platform][matomo] via the Content Provider Dashboard
 *  installation of the tracking code
 *  tracking of usage events from the repository in Matomo
+*  validation of tracking of usage events from the repository in Matomo
 *  application of COUNTER rules on usage data and storing them to the OpenAIRE statistics Database
-*  presentation of usage statistics on the OpenAIRE Portal and dashboard and provision of usage reports via the [SUSHI-Lite API endpoint][sushiliteendpoint].
+*  application of the COUNTER Code of Practice Release 4 for processing the usage events and generating usage statistics reports presented in the OpenAIRE Portal, or via a [SUSHI-Lite API endpoint][sushiliteendpoint].
 
 ### Usage Statistics Service Registration
 
@@ -42,6 +43,7 @@ On the Repository's side
 
 	* as a patch for various versions of [DSpace](https://github.com/openaire/OpenAIRE-Piwik-DSpace)
 	* as an [Eprints](https://github.com/openaire/EPrints-OAPiwik) plugin for version 3
+	* as a python script in the form of a [Generic Matomo Tracker](https://github.com/openaire/Generic-Matomo-Tracker)
 
 3. Deploy the tracking code in your repository platform.
 
@@ -77,5 +79,5 @@ new releases of standards for the recording and exchange of usage statistics and
 of OpenAIRE services that record, process, represent or expose usage statistics. Participating
 data provider managers will be informed accordingly.
 
-[sushiliteendpoint]: http://beta.services.openaire.eu/usagestats/sushilite/
+[sushiliteendpoint]: http://services.openaire.eu/usagestats/sushilite/
 [matomo]: https://matomo.org/
