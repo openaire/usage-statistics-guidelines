@@ -1,5 +1,5 @@
-site_name: OpenAIRE Usage Statistics Guidelines
-site_author: OpenAIRE Usage Statistics Team
+site_name: OpenAIRE Usage Counts Guidelines
+site_author: OpenAIRE Usage Accounts Team
 theme:
     name: readthedocs
     highlightjs: true
@@ -9,4 +9,3 @@ theme:
 nav:
     - Home: index.md
     - Service Specification: service-specification/service-spec.md
-
