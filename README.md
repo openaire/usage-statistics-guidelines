@@ -1,4 +1,4 @@
-Source of the documentation for the OpenAIRE Usage Statistics Service Guidelines
+Source of the documentation for the OpenAIRE Usage Counts Service Guidelines
 
 **See the guidelines at [https://openaire.github.io/usage-statistics-guidelines/](https://openaire.github.io/usage-statistics-guidelines/)**
 
