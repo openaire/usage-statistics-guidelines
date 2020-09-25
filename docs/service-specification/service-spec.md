@@ -1,7 +1,7 @@
-#  Usage Statistics Service Specification
+#  Usage Counts Service Specification
 
-## Matomo Open Source Analytics platform
-OpenAIRE’s usage statistic service uses the [Matomo Open Source Analytics platform][matomo] to track usage activity. Matomo is a platform for web traffic analysis which started in 2007 and has recently become the world's leading open-source analytics platform. Matomo provides users with valuable insights into their website traffic and visitors activity.  The main advantage of Matomo against other analytics platforms, e.g. Google Analytics, is its approach to ownership of collected data. All information gathered, is available and controlled only by Matomo users and by default is not shared with any third parties.
+## OpenAIRE Analytics platform
+OpenAIRE’s usage counts service uses the [Matomo Open Source Analytics platform][matomo] to track usage activity. Matomo is a platform for web traffic analysis which started in 2007 and has recently become the world's leading open-source analytics platform. Matomo provides users with valuable insights into their website traffic and visitors activity.  The main advantage of Matomo against other analytics platforms, e.g. Google Analytics, is its approach to ownership of collected data. All information gathered, is available and controlled only by Matomo users and by default is not shared with any third parties.
 
 Matomo is self-hosted, so the platform is stored on user’s infrastructure and all data is tracked inside the user’s database. Thus, the user keeps full data ownership and can control who has access. It provides greater flexibility, as it allows the collection and storage of PII (*Personally Identifiable Information*) and other sensitive data that cannot usually be stored outside of a user’s system. Due to its privacy policy, Matomo is compliant with EU regulations, and is recommended by independent centers for Privacy Protection, e.g. ULD 16  in Germany and CNIL 17  in France. Apart from its privacy policies, Matomo exceeds the main competitive Google Analytics platform in other respects, as shown in Table 1 below.
 
@@ -18,7 +18,7 @@ Matomo is self-hosted, so the platform is stored on user’s infrastructure and 
 
 ## Description of the Service
 
-OpenAIRE Usage Statistics Service operates as a basis for:
+OpenAIRE Usage Counts Service operates as a basis for:
 
 * reliable, comparable standards-based statistics (COUNTER-conformant, bot filtering)
 * reporting to stakeholders (e.g. as a repository dashboard feature)  
@@ -47,15 +47,15 @@ Two approaches are foreseen for the collection of usage data, named Tier 1 and T
 A different approach for the usage analytics service, named Tier 2 and also depicted in Figure 1, follows a *Pull* approach, whereas data providers or usage statistics aggregation services (e.g. IRUS-UK) offer a bulk download method for the usage data. In particular, Tier 2 approach supports the gathering of consolidated statistics reports using other protocols such as SUSHI-Lite. These statistics are also stored to OpenAIRE’s DB for statistical analysis and are deployed via OpenAIRE’s Portal, OpenAIRE's Repository Dashboard, or Sushi-Lite API.
 
 
-As seen above, Usage Statistics service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal.
+As seen above, Usage Counts service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal.
 
 ![](/img/TiersCollectionWorkflows.png)
 
-*Fig.1 2-Tiers Collection Workflows for Usage Statistics*
+*Fig.1 2-Tiers Collection Workflows for Usage Counts*
 
 ## Application of COUNTER Code of Practice rules on usage events
 
-An important step of the Usage Statistics Service process is the cleaning of usage activity which is caused by machines like web bots or spiders. Such software systematically browses websites in order to enhance web indexing but their activities affect usage traffic statistics since they result in the logging of non-legitimate usage activity. To avoid such non-legitimate traffic Matomo maintains a community-contributed list of referrer spammers. The list is stored in a file named spammers.txt and contains one (bot/spider) host per line. This list is included in each Matomo release so that referrer spam is filtered automatically. Matomo also automatically updates this list to its latest version every week.
+An important step of the Usage Counts Service process is the cleaning of usage activity which is caused by machines like web bots or spiders. Such software systematically browses websites in order to enhance web indexing but their activities affect usage traffic statistics since they result in the logging of non-legitimate usage activity. To avoid such non-legitimate traffic Matomo maintains a community-contributed list of referrer spammers. The list is stored in a file named spammers.txt and contains one (bot/spider) host per line. This list is included in each Matomo release so that referrer spam is filtered automatically. Matomo also automatically updates this list to its latest version every week.
 
  The main cleaning process in usage logs, is the application of the COUNTER Code of Practice rules, as described in the last version of the COUNTER framework. COUNTER framework provides an international, extendible Code of Practice for e-Resources that allows the usage of online information products and services to be measured in a credible, consistent and compatible way using vendor-generated data.
 
@@ -86,7 +86,7 @@ After COUNTER rules are applied, the resulting usage statistics are represented 
 * AR-1 - Article Report 1, number of successful article download requests by month and repository
 * IR-1 - Item Report 1, number of successful item download requests by month and repository
 * JR-1 - Journal Report 1, number of successful full-text article requests by month and journal
-* RR-1 - Repository Report 1, number of successful item downloads for all repositories participating in the usage statistics service
+* RR-1 - Repository Report 1, number of successful item downloads for all repositories participating in the Usage Counts service
 * BR-1 - Book Report 1, number of successful title requests by month and title
 * BR-2 - Book Report 2, number of successful section requests by month and title
 
