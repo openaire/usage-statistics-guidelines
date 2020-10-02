@@ -21,8 +21,8 @@ Being aware of the sensitivity of this usage data, legal constraints are conside
 
 Integration of repository usage statistics comprises the following steps:
 
-*  check via the [Provide Dashboard](https://provide.openaire.eu) if your repository is registered or register there
-*  installation of the tracking code
+*  check via the [Provide Dashboard](https://provide.openaire.eu) if your repository is registered or register for the service
+*  local installation of the tracking code
 *  tracking of usage events from the repository
 *  validation of tracking of usage events from the repository
 *  application of COUNTER rules on usage data and storing them to the OpenAIRE statistics Database
@@ -30,7 +30,7 @@ Integration of repository usage statistics comprises the following steps:
 
 ### Usage Counts Service Registration
 
-The first step of the usage tracking process is the registration of the repository to the [Matomo platform][matomo] running in OpenAIRE. This is done by the data provider manager via the repository dashboard. A unique identifier of the Matomo instance is generated and associated with the repository, together with an authentication token, required to access the platform. The identifier is stored and accessible in the data source profile.
+The first step of the usage tracking process is the registration of the repository to the [Matomo platform][matomo] running in OpenAIRE. This is done by the data provider manager via the [Provide dashboard][providedashboard]. A unique identifier of the analytics instance is generated and associated with the repository, together with an authentication token, required to access the platform. The identifier is stored and accessible in the data source profile.
 
 ### Usage Statistics Service Configuration
 
@@ -55,7 +55,7 @@ On the OpenAIRE's side
 
 Before data providers can officially participate in OpenAIRE Usage Statistics the implementation
 and configuration of the tracker plugins and SUSHI-Lite endpoints respectively will be tested and
-validated between the data provider manager and the OpenAIRE support.
+validated between the data provider manager and the [OpenAIRE support](https://www.openaire.eu/support).
 
 *Data Provider Managers*
 
@@ -77,4 +77,5 @@ of OpenAIRE services that record, process, represent or expose usage statistics.
 data provider managers will be informed accordingly.
 
 [sushiliteendpoint]: http://services.openaire.eu/usagestats/sushilite/
+[providedashboard]: https://provide.openaire.eu/
 [matomo]: https://matomo.org/
