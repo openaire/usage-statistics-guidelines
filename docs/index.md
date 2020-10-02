@@ -21,7 +21,7 @@ Being aware of the sensitivity of this usage data, legal constraints are conside
 
 Integration of repository usage statistics comprises the following steps:
 
-*  registration of the repository via the Content Provider Dashboard
+*  check via the [Provide Dashboard](https://provide.openaire.eu) if your repository is registered or register there
 *  installation of the tracking code
 *  tracking of usage events from the repository
 *  validation of tracking of usage events from the repository
