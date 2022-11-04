@@ -50,8 +50,8 @@ A different approach for the usage analytics service, named Tier 2 and also depi
 As seen above, Usage Counts service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal.
 
 
-<img width="700"  height="700" align="center" src="/img/TiersCollectionWorkflows.png">
-<!-- ![](/img/TiersCollectionWorkflows.png) -->
+<!-- <img width="700"  height="700" align="center" src="img/TiersCollectionWorkflows.png"> -->
+![](img/TiersCollectionWorkflows.png)
 
 *Fig.1 2-Tiers Collection Workflows for Usage Counts*
 
