@@ -207,7 +207,8 @@
 </table>
 <p>A different approach for the usage analytics service, named Tier 2 and also depicted in Figure 1, follows a <em>Pull</em> approach, whereas data providers or usage statistics aggregation services (e.g. IRUS-UK) offer a bulk download method for the usage data. In particular, Tier 2 approach supports the gathering of consolidated statistics reports using other protocols such as SUSHI-Lite. These statistics are also stored to OpenAIRE’s DB for statistical analysis and are deployed via OpenAIRE’s Portal, OpenAIRE's Repository Dashboard, or Sushi-Lite API.</p>
 <p>As seen above, Usage Counts service interacts with other parts of the OpenAIRE infrastructure, namely the repository dashboard, the data source profile management and the OpenAIRE portal.</p>
-<p><img alt="" src="/img/TiersCollectionWorkflows.png" /></p>
+<!-- ![](/img/TiersCollectionWorkflows.png) -->
+<p><img alt="Alt Text" src="/img/TiersCollectionWorkflows.png" /></p>
 <p><em>Fig.1 2-Tiers Collection Workflows for Usage Counts</em></p>
 <h2 id="application-of-counter-code-of-practice-rules-on-usage-events">Application of COUNTER Code of Practice rules on usage events</h2>
 <p>An important step of the Usage Counts Service process is the cleaning of usage activity which is caused by machines like web bots or spiders. Such software systematically browses websites in order to enhance web indexing but their activities affect usage traffic statistics since they result in the logging of non-legitimate usage activity. To avoid such non-legitimate traffic Matomo maintains a community-contributed list of referrer spammers. The list is stored in a file named spammers.txt and contains one (bot/spider) host per line. This list is included in each Matomo release so that referrer spam is filtered automatically. Matomo also automatically updates this list to its latest version every week.</p>
