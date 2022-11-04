@@ -1,5 +1,5 @@
-site_name: OpenAIRE Usage Counts Guidelines
-site_author: OpenAIRE Usage Accounts Team
+site_name: OpenAIRE UsageCounts Guidelines
+site_author: OpenAIRE UsageCounts Team
 theme:
     name: readthedocs
     highlightjs: true
