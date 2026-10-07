@@ -3,79 +3,90 @@
 
 ## Purpose
 
-The guidelines are aimed to provide orientation for data source managers about participation in the OpenAIRE Usage Counts Service and about the methods and standards used to collect and process usage data in order to generate comparable, standards-based usage statistics. The guidelines follow the Release 4 of the COUNTER Code of Practice for e-Resources supplemented by the IRUS-UK Code of Practice.
+These guidelines explain to data source managers (repositories, e-journals, CRIS) how to join the OpenAIRE Usage Counts Service, and describe the methods and standards OpenAIRE uses to turn usage data into comparable, standards-based statistics. The guidelines follow Release 4 of the COUNTER Code of Practice for e-Resources, supplemented by the IRUS-UK Code of Practice.
 
-## Introduction
+## In short: what do I need to install?
 
-The OpenAIRE Usage Counts Service gathers usage data and consolidated usage statistics reports respectively, from its distributed network of data providers (repositories, e-journals, CRIS) by utilizing open standards and protocols and exploiting reliable, consolidated and comparable usage metrics like counts of item downloads and metadata views conformant to COUNTER Code of Practice.
+!!! note "You do **not** need to install Matomo"
+    OpenAIRE hosts and operates the Matomo analytics platform used by the service. Data providers never install or maintain Matomo themselves.
 
-The Usage Counts Service, allows the sharing of statistics across the above distributed network and provides significant added value for different stakeholders. On the data-provider level, it can serve repository managers and hosting institutions as a tool to evaluate the success of the publication platform. On the individual item level, it can demonstrate popular publications to authors and readers. In addition  to  other  traditional  (e.g.  citation  counts)  and  alternative  metrics  (e.g. mentions, recommendations) it can inform funding authorities in research evaluation processes.
+What you need depends on how you take part:
 
-Usage statistics on the item level can reflect relevance of a particular research output, of topics, of (disciplinary) data sources over the course of time and up to the present, e.g. they are an important indicator to analyze trends. For non-traditional output types (e.g. research data, research software), usage statistics are often the only indicator available, while the implementation of data citation standards lags behind.
+| | **Option 1 – Tracker (Tier 1, default)** | **Option 2 – Existing statistics (Tier 2)** |
+|---|---|---|
+| **When it fits** | Your repository does not yet produce COUNTER statistics | Your repository already exposes COUNTER-compliant reports via SUSHI, or takes part in a usage statistics aggregator (e.g. IRUS) |
+| **What you install** | A small tracker for your platform (DSpace patch, EPrints plugin, or a generic log-based script) | Nothing |
+| **How data reaches OpenAIRE** | The tracker *pushes* usage events to OpenAIRE's Matomo | OpenAIRE *pulls* your consolidated reports |
+| **What you get from OpenAIRE** | A Matomo **Site ID** and an **authentication token** | — |
 
-The  OpenAIRE  Usage  Counts  Service  aims  to  facilitate  the  above  added-value  services by tracking, collecting, analyzing and monitoring usage data from its network of data providers and exploiting usage metrics like downloads and metadata views. Moreover, OpenAIRE’s distributed network of data providers allows the aggregation of usage data about publications which are published in several places.
+Details of both workflows are in the [Service Specification](service-specification/service-spec.md#description-of-the-service).
 
-Being aware of the sensitivity of this usage data, legal constraints are considered regarding the EU General Data Protection Regulation (GDPR). The aim is to allow COUNTER-conformant reports on usage statistics to be generated and thus enable the results of this process to be used to examine correlations with other types of metrics, e.g. bibliometric and webometric. This service is integrated with the repository dashboard, the OpenAIRE portal and API for 3rd party reuse.
+## How to participate
 
-## How to participate in the OpenAIRE Usage Counts Service
+### Option 1 – Tracker (Tier 1)
 
-Integration of repository usage statistics comprises the following steps:
+| # | Who | Action |
+|---|---|---|
+| 1 | Repository manager | In the [PROVIDE dashboard][providedashboard], check that your repository is registered (or register it) and request participation in Usage Counts. |
+| 2 | Repository manager | Get the **Site ID** and the **authentication token** for your repository. The Site ID is stored in your data source profile. If you cannot find them, contact [repositoryusagestats@openaire.eu](mailto:repositoryusagestats@openaire.eu). |
+| 3 | Repository manager | Install and configure the tracker for your platform (see [Trackers](#trackers) below), entering the Site ID and token. |
+| 4 | Repository manager | Deploy the tracker in production and inform OpenAIRE that it is active. |
+| 5 | OpenAIRE | Check that usage events arrive correctly and tell the repository manager the result of the validation. |
+| 6 | OpenAIRE | Process the events every month according to COUNTER rules and publish the statistics in PROVIDE, in the OpenAIRE portal and through the [SUSHI-Lite endpoint][sushiliteendpoint]. |
 
-*  check via the [Provide Dashboard](https://provide.openaire.eu) if your repository is registered or register for the service
-*  local installation of the tracking code
-*  tracking of usage events from the repository
-*  validation of tracking of usage events from the repository
-*  application of COUNTER rules on usage data and storing them to the OpenAIRE statistics Database
-*  application of the COUNTER Code of Practice Release 4 for processing the usage events and generating usage statistics reports presented in the OpenAIRE Portal, or via a [SUSHI-Lite API endpoint][sushiliteendpoint].
+### Option 2 – Existing statistics (Tier 2)
 
-### Usage Counts Service Registration
+| # | Who | Action |
+|---|---|---|
+| 1 | Repository manager | Register your repository in the [PROVIDE dashboard][providedashboard] (if not already registered). |
+| 2 | Repository manager | Contact [OpenAIRE support][support] and provide the SUSHI endpoint of your repository, or the aggregator that already collects your statistics. |
+| 3 | OpenAIRE | Test the harvesting of your reports and confirm participation. |
+| 4 | OpenAIRE | Harvest your reports regularly and publish them as in Option 1, step 6. |
 
-The first step of the usage tracking process is the registration of the repository to the [Matomo platform][matomo] running in OpenAIRE. This is done by the data provider manager via the [Provide dashboard][providedashboard]. A unique identifier of the analytics instance is generated and associated with the repository, together with an authentication token, required to access the platform. The identifier is stored and accessible in the data source profile.
+### Trackers
 
-### Usage Statistics Service Configuration
+The trackers and their installation instructions are maintained on GitHub:
 
-There are four steps that need to be performed in order to configure and use the Usage Statistics Service. These steps require the co-operation of the repository and given below:
+| Platform | Tracker | Notes |
+|---|---|---|
+| DSpace 4, 5, 6, 7 | [OpenAIRE-Piwik-DSpace](https://github.com/openaire/OpenAIRE-Piwik-DSpace) | Patch applied to the DSpace source; DSpace must be rebuilt and redeployed |
+| EPrints 3 | [EPrints-OAPiwik](https://github.com/openaire/EPrints-OAPiwik) | Plugin; requires an Apache restart |
+| Any other platform | [Generic Matomo Tracker](https://github.com/openaire/Generic-Matomo-Tracker) | Python 3 script that reads your web server log files and sends usage events to OpenAIRE's Matomo |
 
-On the Repository's side
+The DSpace and EPrints trackers can anonymize the visitor's IP address before it is sent, by setting how many bytes of the address are zeroed. See each tracker's README.
 
-1. Download the tracking code for the repository platform.
-2. Configure the tracking code according to the instructions. The code and the instructions are maintained on Github:
+## Why take part
 
-	* as a patch for various versions of [DSpace](https://github.com/openaire/OpenAIRE-Piwik-DSpace)
-	* as an [Eprints](https://github.com/openaire/EPrints-OAPiwik) plugin for version 3
-	* as a python script in the form of a [Generic Matomo Tracker](https://github.com/openaire/Generic-Matomo-Tracker)
+The service collects usage data from OpenAIRE's network of data providers and turns it into reliable, comparable metrics (item downloads and metadata views) that conform to the COUNTER Code of Practice. Its added value is:
 
-3. Deploy the tracking code in your repository platform.
+* **for repository managers and hosting institutions:** a way to measure how well the publication platform is used;
+* **for authors and readers:** visibility of the most used items;
+* **for funders and evaluators:** an indicator that complements citations and altmetrics. For research data and software it is often the only indicator available;
+* **for everyone:** usage of the same publication is added up across all the repositories that host it.
 
-On the OpenAIRE's side
+Statistics are available in the PROVIDE dashboard, in the OpenAIRE portal and, for third-party reuse, through the SUSHI-Lite API.
 
-4. OpenAIRE's usage statistics staff will validate the installation of the tracking code and inform the repository manager accordingly.
+## Privacy
+
+The service complies with the EU General Data Protection Regulation (GDPR). Only the data listed in the [Service Specification](service-specification/service-spec.md#description-of-the-service) is collected, and IP addresses can be anonymized at the source by the tracker. Usage data is stored on OpenAIRE's own Matomo instance and is not shared with third parties.
 
 ## Responsibilities
 
-Before data providers can officially participate in OpenAIRE Usage Statistics the implementation
-and configuration of the tracker plugins and SUSHI-Lite endpoints respectively will be tested and
-validated between the data provider manager and the [OpenAIRE support](https://www.openaire.eu/support).
+*Data provider managers*
 
-*Data Provider Managers*
-
-Data Provider Managers keep the configuration information regarding usage statistics in the data provider
-dashboard up to date.
-In case of platform software updates (e.g. by migration, new releases) which may affect existing
-metadata record identifiers the data provider manager informs the OpenAIRE support.
+* Keep the usage statistics information in the PROVIDE dashboard up to date.
+* Tell [OpenAIRE support][support] before platform changes (migrations, new releases) that may change record identifiers or URLs, since these can break tracking.
 
 *OpenAIRE*
 
-The OpenAIRE Usage Counts service complies with the EU General Data Protection Regulation with regard to the protection of personally identifiable information.
-The Usage Statistics Service will generate visualizations and reports on a monthly basis. In order to conform with the COUNTER Code of Practice the data processing and cleaning rules will be maintained to comply with the lastest release of COUNTER.
+* Validates every new tracker or SUSHI endpoint with the data provider manager before participation starts.
+* Produces statistics and reports every month.
+* Keeps data processing and cleaning rules aligned with the latest COUNTER release.
 
-## Maintenance of the Guidelines
+## Maintenance of the guidelines
 
-The guidelines are continuously reviewed for their validity and will be updated with regards to
-new releases of standards for the recording and exchange of usage statistics and new releases
-of OpenAIRE services that record, process, represent or expose usage statistics. Participating
-data provider managers will be informed accordingly.
+The guidelines are reviewed regularly. They are updated when new versions of usage statistics standards are released, or when OpenAIRE services that record, process or expose usage statistics change. Participating data provider managers are informed of the changes.
 
-[sushiliteendpoint]: http://services.openaire.eu/usagestats/sushilite/
+[sushiliteendpoint]: https://services.openaire.eu/usagestats/sushilite/
 [providedashboard]: https://provide.openaire.eu/
-[matomo]: https://matomo.org/
+[support]: https://www.openaire.eu/support
